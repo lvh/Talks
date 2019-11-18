@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="19cm" height="9cm" viewBox="262 119 363 166" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs/>
+  <g id="Background">
+    <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="264" y="120" width="360" height="44" rx="0" ry="0"/>
+    <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="264" y="180" width="360" height="44" rx="0" ry="0"/>
+    <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="264" y="240" width="360" height="44" rx="0" ry="0"/>
+    <rect style="fill: #ff0000; fill-opacity: 0.2; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="268" y="128" width="140" height="28" rx="0" ry="0"/>
+    <rect style="fill: #ff0000; fill-opacity: 0.2; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="268" y="188" width="68" height="28" rx="0" ry="0"/>
+    <rect style="fill: #ff0000; fill-opacity: 0.2; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="268" y="248" width="248" height="28" rx="0" ry="0"/>
+    <rect style="fill: #00ff00; fill-opacity: 0.2; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="524" y="248" width="60" height="28" rx="0" ry="0"/>
+    <rect style="fill: #0000ff; fill-opacity: 0.2; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="524" y="128" width="92" height="28" rx="0" ry="0"/>
+    <rect style="fill: #00ff00; fill-opacity: 0.2; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="416" y="128" width="100" height="28" rx="0" ry="0"/>
+    <rect style="fill: #0000ff; fill-opacity: 0.2; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="588" y="248" width="28" height="28" rx="0" ry="0"/>
+    <rect style="fill: #00ff00; fill-opacity: 0.2; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="344" y="188" width="136" height="28" rx="0" ry="0"/>
+    <rect style="fill: #0000ff; fill-opacity: 0.2; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="488" y="188" width="128" height="28" rx="0" ry="0"/>
+    <g>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="560" y="132" width="20" height="20" rx="0" ry="0"/>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="274.942" y="132.126" width="20" height="20" rx="0" ry="0"/>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="310.942" y="132.126" width="20" height="20" rx="0" ry="0"/>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="346.942" y="132.126" width="20" height="20" rx="0" ry="0"/>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="382.942" y="132.126" width="20" height="20" rx="0" ry="0"/>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="420" y="132" width="20" height="20" rx="0" ry="0"/>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="456" y="132" width="20" height="20" rx="0" ry="0"/>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="492" y="132" width="20" height="20" rx="0" ry="0"/>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="528" y="132" width="20" height="20" rx="0" ry="0"/>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="592" y="132" width="20" height="20" rx="0" ry="0"/>
+    </g>
+    <g>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="560" y="192" width="20" height="20" rx="0" ry="0"/>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="274.942" y="192.126" width="20" height="20" rx="0" ry="0"/>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="310.942" y="192.126" width="20" height="20" rx="0" ry="0"/>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="346.942" y="192.126" width="20" height="20" rx="0" ry="0"/>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="382.942" y="192.126" width="20" height="20" rx="0" ry="0"/>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="420" y="192" width="20" height="20" rx="0" ry="0"/>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="456" y="192" width="20" height="20" rx="0" ry="0"/>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="492" y="192" width="20" height="20" rx="0" ry="0"/>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="528" y="192" width="20" height="20" rx="0" ry="0"/>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="592" y="192" width="20" height="20" rx="0" ry="0"/>
+    </g>
+    <g>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="560" y="252" width="20" height="20" rx="0" ry="0"/>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="274.942" y="252.126" width="20" height="20" rx="0" ry="0"/>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="310.942" y="252.126" width="20" height="20" rx="0" ry="0"/>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="346.942" y="252.126" width="20" height="20" rx="0" ry="0"/>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="382.942" y="252.126" width="20" height="20" rx="0" ry="0"/>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="420" y="252" width="20" height="20" rx="0" ry="0"/>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="456" y="252" width="20" height="20" rx="0" ry="0"/>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="492" y="252" width="20" height="20" rx="0" ry="0"/>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="528" y="252" width="20" height="20" rx="0" ry="0"/>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="592" y="252" width="20" height="20" rx="0" ry="0"/>
+    </g>
+  </g>
+</svg>

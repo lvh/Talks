@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Solving regex crosswords</title>
+
+    <meta name="description" content="Solving regex crosswords">     <meta name="author" content="lvh" /> 
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="/reveal.js/css/reveal.min.css">     <link rel="stylesheet" href="/reveal.js/css/theme/lvh.css" id="theme"> 
+    <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="/reveal.js/lib/css/default.css"> 
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+        document.write('<link rel="stylesheet" href="/reveal.js/css/print/' +
+            (window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper') +
+            '.css" type="text/css" media="print">');
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+    
+</head>
+
+<body>
+    
+
+    <div class="reveal">
+
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+
+            <section>
+                <h1>Solving regex crosswords</h1>
+                                <h3>lvh</h3>                <p>
+                    <h4></h4>
+                </p>
+            </section>
+
+             <section><section id="hello" class="title-slide slide level1"><h1>Hello!</h1></section><section id="section" class="slide level2">
+<h2>﻿</h2>
+<p><img style="margin-top: -48px" width="60%" src="../shared/pinchy.svg"></p>
+</section><section id="section-1" class="slide level2">
+<h2>﻿</h2>
+<p><img style="margin-top: -48px" src="../shared/Latacora.svg"></p>
+</section><section id="section-2" class="slide level2">
+<h2>﻿</h2>
+<p><img style="margin-top: -48px" width="30%" src="../shared/clojurists-together.svg"></p>
+</section></section>
+<section><section id="solving-regex-crosswords" class="title-slide slide level1"><h1>Solving regex crosswords</h1></section><section id="regex-crossword" class="slide level2">
+<h2>Regex Crossword</h2>
+<p>https://regexcrossword.com</p>
+<p><span class="citation" data-cites="omichelsen">@omichelsen</span>, <span class="citation" data-cites="mhmichelsen">@mhmichelsen</span></p>
+</section><section id="section-3" class="slide level2">
+<h2>﻿</h2>
+<p><img style="margin-top: -48px" src="img/regexcrossword.com_challenges_tutorial_puzzles_1.png"></p>
+</section><section id="section-4" class="slide level2">
+<h2>﻿</h2>
+<p><img style="margin-top: -48px" src="img/regexcrossword.com_challenges_tutorial_puzzles_1_solved.png"></p>
+</section><section id="section-5" class="slide level2">
+<h2>​</h2>
+<p><img style="margin-top: -48px" width="50%" src="img/bighex.png"></p>
+</section><section id="completionist" class="slide level2">
+<h2>Completionist</h2>
+</section><section id="responsibilities" class="slide level2">
+<h2>Responsibilities</h2>
+</section></section>
+<section><section id="clojsure" class="title-slide slide level1"><h1><code>Clo[js]ure</code></h1></section><section id="crossword" class="slide level2">
+<h2>Crossword?</h2>
+<ul>
+<li>more like Sudoku</li>
+<li>backtracking</li>
+<li><code>core.logic</code>!</li>
+</ul>
+</section><section id="core.logic" class="slide level2">
+<h2>core.logic</h2>
+<pre class="clojure"><code>(let [vars (repeatedly 81 lvar)
+      rows (-&gt;&gt; vars (partition 9) (map vec) (into []))
+      cols (apply map vector rows)
+      sqs ...]
+  (run 1 [q]
+    (== q vars)
+    (everyg #(fd/in % (fd/interval 1 9)) vars)
+    (everyg fd/distinct rows)
+    (everyg fd/distinct cols)
+    (everyg fd/distinct sqs)))</code></pre>
+<p>(Go watch anything by Will Byrd)</p>
+</section><section id="test.chuck-regex-parser" class="slide level2">
+<h2>test.chuck regex parser</h2>
+<pre class="clojure"><code>(cre/parse &quot;CLO[JS]URE&quot;)
+{:type :alternation,
+ :elements
+ ({:type :concatenation,
+   :elements
+   ({:type :character, :character \C} ...
+    {:type :class,
+     :elements
+     [{:type :class-intersection,
+       :elements
+       ({:type :class-union,
+         :elements ({:type :class-base, :chars #{\J}} ...)})}],
+     :brackets? true}
+    {:type :character, :character \U} ...)})}</code></pre>
+</section><section id="a" class="slide level2">
+<h2><code>A</code></h2>
+<div style="font-size: 180%">
+<pre class="clojure"><code>(defmethod re-&gt;goal :character
+  [{:keys [character]} [lvar]]
+  (l/== character lvar))</code></pre>
+</div>
+</section><section id="ab" class="slide level2">
+<h2><code>A|B</code></h2>
+<div style="font-size: 180%">
+<pre class="clojure"><code>(defmethod re-&gt;goal :alternation
+  [{:keys [elements]} lvars]
+  (l/or*
+    (map #(re-&gt;goal % lvars)
+      elements)))</code></pre>
+</div>
+</section><section id="axy-a" class="slide level2">
+<h2><code>A{x,y}</code>, <code>A*</code>, …</h2>
+<pre class="clojure"><code>(defmethod re-&gt;goal :repetition
+  [{[elem] :elements [lower upper] :bounds} lvars]
+  (let [n-vars (count lvars)
+        lower (-&gt; lower (or 0))
+        upper (-&gt; upper (or n-vars) (max n-vars))]
+    (if (zero? n-vars)
+      (if (zero? lower) l/succeed l/fail)
+      (l/or*
+       (for [reps (range (max lower 1) (inc upper))
+             :when (zero? (rem n-vars reps))
+             :let [group-size (quot n-vars reps)
+                   groups (partition group-size lvars)]]
+         (l/and* (map (partial re-&gt;goal elem) groups)))))))</code></pre>
+</section><section id="section-6" class="slide level2">
+<h2>﻿</h2>
+<p><img style="margin-top: -48px" src="img/repetition-success.svg"></p>
+</section><section id="section-7" class="slide level2">
+<h2>﻿</h2>
+<p><img style="margin-top: -48px" src="img/repetition-fail.svg"></p>
+</section><section id="concatenation" class="slide level2">
+<h2>Concatenation</h2>
+<div style="font-size: 500%">
+<pre><code>A B C
+↓ ↓ ↓
+☐ ☐ ☐</code></pre>
+</div>
+</section><section id="abc" class="slide level2">
+<h2><code>A*B*C*</code>?</h2>
+<p><img src="img/concatenation.svg"></p>
+</section><section id="abc-1" class="slide level2">
+<h2><code>A*B*C*</code></h2>
+<div style="font-size: 200%">
+<pre class="clojure"><code>(-&gt;&gt; [a b c] (apply +) (== 9))
+
+[[0 0 9] [0 1 8] [0 2 7] ...]</code></pre>
+</div>
+</section><section id="hmm" class="slide level2">
+<h2>Hmm</h2>
+<p>If only…</p>
+</section><section id="core.logic.fd" class="slide level2">
+<h2><code>core.logic.fd</code>!</h2>
+<div style="font-size: 180%">
+<pre class="clojure"><code>(defn reduceo ...)
+(def sumo (partial reduceo fd/+))
+;; (sumo 9 [a b c])</code></pre>
+</div>
+</section><section id="logic-all-the-way-down" class="slide level2">
+<h2>Logic all the way down!</h2>
+<div style="font-size: 600%; margin-top: -60px">
+<p>🐢<sub>🐢<sub>🐢<sub>🐢<sub>…</sub></sub></sub></sub></p>
+</div>
+</section><section id="core.logic-1" class="slide level2">
+<h2>💥 core.logic 💥</h2>
+<p>If it’s not working,<br>you’re not using enough of it</p>
+</section></section>
+<section><section id="conclusion" class="title-slide slide level1"><h1>Conclusion</h1></section><section id="django" class="slide level2">
+<h2>Django</h2>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Just+Another+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC:700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
+
+
+.replacement {
+  position: relative;
+}
+
+.replacement p {
+  margin-top: 30px;
+}
+
+.replacement span {
+  position: absolute;
+  font-family: 'Permanent Marker', cursive;
+}
+
+.replacement span.above {
+  top: -30px;
+}
+
+.replacement span.below {
+  bottom: -30px;
+}
+</style>
+<div class="replacement">
+<p>“The web framework for<br> perfectionists with deadlines.”</p>
+</div>
+</section><section id="core.logic-2" class="slide level2">
+<h2><code>core.logic</code></h2>
+<div class="replacement">
+<p>“The <span class="above" style="margin-left: 30px">?</span><s>web</s> <span class="above" style="margin-left: 30px">library</span><s>framework</s> for<br><span class="below" style="margin-left: -30px">completionists</span><s>perfectionists</s> with <span class="below" style="margin-left: -30px">responsibilities</span><s>deadlines</s>.”</p>
+</div>
+</section><section id="world-domination" class="slide level2">
+<h2>World domination</h2>
+<p><code>(webservero request response)</code></p>
+</section><section id="blog-post" class="slide level2">
+<h2>Blog post</h2>
+<p><code>lvh.io</code></p>
+</section></section>
+        </div>
+
+        <script src="/reveal.js/lib/js/head.min.js"></script>
+        <script src="/reveal.js/js/reveal.min.js"></script>
+
+        <script>
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                // available themes are in /css/theme
+                                theme: Reveal.getQueryHash().theme || 'lvh',
+                
+                // default/cube/page/concave/zoom/linear/fade/none
+                                transition: Reveal.getQueryHash().transition || 'none',
+                
+                math: {
+                    mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
+                    config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+                },
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [{
+                        src: '/reveal.js/lib/js/classList.js',
+                        condition: function() {
+                            return !document.body.classList;
+                        }
+                    },
+                    {
+                        src: '/reveal.js/plugin/markdown/showdown.js',
+                        condition: function() {
+                            return !!document.querySelector('[data-markdown]');
+                        }
+                    },
+                    {
+                        src: '/reveal.js/plugin/markdown/markdown.js',
+                        condition: function() {
+                            return !!document.querySelector('[data-markdown]');
+                        }
+                    },
+                    {
+                        src: '/reveal.js/plugin/highlight/highlight.js',
+                        async: true,
+                        callback: function() {
+                            hljs.initHighlightingOnLoad();
+                        }
+                    },
+                    {
+                        src: '/reveal.js/plugin/zoom-js/zoom.js',
+                        async: true,
+                        condition: function() {
+                            return !!document.body.classList;
+                        }
+                    },
+                    {
+                        src: '/reveal.js/plugin/notes/notes.js',
+                        async: true,
+                        condition: function() {
+                            return !!document.body.classList;
+                        }
+                    },
+                    { src: '/reveal.js/plugin/math/math.js', async: true }
+                    // { src: '/reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+        </script>
+
+</body>
+
+</html>
