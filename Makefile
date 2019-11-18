@@ -10,7 +10,7 @@ EXPORTS = $(SOURCES:.md=.html)
 		--no-highlight \
 		--section-divs \
 		--variable theme="lvh" \
-		--variable revealjspath="/reveal.js/" \
+		--variable revealjspath="../reveal.js/" \
 		--variable transition="none" \
 		--output=$@ \
 		$<
